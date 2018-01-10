@@ -66,17 +66,19 @@ if(mb_strlen($cat_description)!==0){<br>
 
 ## 階層途中にカテゴリディスクリプションがあれば、そこで停止
 
-<code>
+```html:sample
 // 親までさかのぼって、カテゴリディスクリプションを取得する 
 $ch_cat = get_the_category(); 
 $cat_description = category_description($ch_cat[0]->term_id);
 // ここで、カテゴリディスクリプションがあれば、終了。
+
 if(mb_strlen($cat_description) === 0){
 	$ch_cat_parent = $ch_cat[0]->category_parent;
 	$tmp_cat_parent = $ch_cat_parent;
 	$cat_description = category_description($tmp_cat_parent);
 	if(mb_strlen($cat_description)!==0) $tmp_cat_parent = 0;
-	// カテゴリがないところまでいかないように注意。
+
+    // カテゴリがないところまでいかないように注意。
 	// $tmp_cat_parent = 0;は、whileの停止キー。
 	while($tmp_cat_parent !== 0){ 
 		$arr_category = get_category($ch_cat_parent);
@@ -89,11 +91,12 @@ if(mb_strlen($cat_description) === 0){
 		if($tmp_cat_parent !== 0 ) $ch_cat_parent = $tmp_cat_parent; 
 	} 
 }
+
 // カテゴリディスクリプションを表示する
 if(mb_strlen($cat_description)!==0){
 	echo $cat_description;
 	}
-</code>
+```
     
 # よくまとまっているURL
 http://delaymania.com/201510/wordpress/wordpress-catgory-name/
