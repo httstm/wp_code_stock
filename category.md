@@ -1,20 +1,21 @@
-# リンクがついている親カテゴリ込みリストが必要な場合
+# テンプレートタグのみで実装可能
+## リンクがついている親カテゴリ込みリストが必要な場合
 [テンプレートタグ/get the category list](https://wpdocs.osdn.jp/%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E3%82%BF%E3%82%B0/get_the_category_list)
 
 get_the_category_list( $separator, $parents, $post_id );
 
 ※ もっと強力なリスト取得用関数として wp_list_categories() があります。
 
-# リンクがついている子カテゴリOnlyが必要な場合
+## リンクがついている子カテゴリOnlyが必要な場合
 the_category();
 ※中にID入れても、現在のカテゴリがでる。
 
-# 今の投稿or Archiveと無関係に、カテゴリ情報全部を出したい場合
+## 今の投稿or Archiveと無関係に、カテゴリ情報全部を出したい場合
 [get_categories()](https://wpdocs.osdn.jp/%E9%96%A2%E6%95%B0%E3%83%AA%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9/get_categories#.E3.83.89.E3.83.AD.E3.83.83.E3.83.97.E3.83.80.E3.82.A6.E3.83.B3.E3.83.9C.E3.83.83.E3.82.AF.E3.82.B9)
 
 cf. [get_category()](https://wpdocs.osdn.jp/%E9%96%A2%E6%95%B0%E3%83%AA%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9/get_category)
 
-# 今のカテゴリ名を表示する
+## 今のカテゴリ名を表示する
 single_cat_title()
 
 # カテゴリが複数ある場合は、一つだけ表示する
