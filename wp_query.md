@@ -1,4 +1,4 @@
-```
+```html:sample
 // ごく単純に。
 $my_query = new WP_Query(array('category_name' => '(カテゴリスラッグ)','posts_per_page' => '(一度に表示させたい件数)'));
 if($my_query->have_posts()):
