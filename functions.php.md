@@ -1,4 +1,6 @@
 # CSSをfunctions.phpで読み込む
+
+```
 function custom_style_loader()
 {
     wp_register_style( 'custom-style', get_template_directory_uri() . '/pc.css', array(), '20171229', 'all' );
@@ -9,8 +11,11 @@ function custom_style_loader()
     wp_enqueue_style( 'custom-style' );
 }
 add_action( 'wp_enqueue_scripts', 'custom_style_loader' );
+```
 
 # 「テーマカスタマイズ」のカスタマイズ
+
+```
 // テーマカスタマイザーで、descriptionを設定する
 function my_theme_customize_register( $wp_customize ) {
 
@@ -65,12 +70,18 @@ function my_theme_customize_register( $wp_customize ) {
   ));
 }
 add_action( 'customize_register', 'my_theme_customize_register' );
+```
 
 # サムネイルを有効にする
+
+```
 // サムネイルを有効にする
 add_theme_support( 'post-thumbnails' ); 
+```
 
 # ウィジェットを有効にする
+
+```
 // ウィジェットを有効にする
 $args = array(
 'name'=>('サイドバー'),
@@ -80,22 +91,31 @@ $args = array(
 'after_widget'=>''
 );
 register_sidebar($args);
+```
 
 # the_excerptのカスタマイズ
+
+```
 // the_excerpt()の後ろの...を無くします
 function new_excerpt_more($more) {
 	return '';
 }
 add_filter('excerpt_more', 'new_excerpt_more');
+```
 
 # カテゴリdescriptionにhtmlを利用できるようにする
+
+```
 // カテゴリdescriptionに、htmlを利用できるようにします
 remove_filter( 'pre_term_description', 'wp_filter_kses' );
+```
 
 # 親のカテゴリdescriptionを取得する
 
 
 # カテゴリテンプレートを親のテンプレートからとってくれる
+
+```
 // 子カテゴリーのテンプレートを親カテゴリーのテンプレートからとってくれる
 add_filter( 'category_template', 'my_category_template' );
 
@@ -115,3 +135,4 @@ function my_category_template( $template ) {
 	}
 	return $template;
 }
+```
