@@ -133,3 +133,8 @@ function my_category_template( $template ) {
 	return $template;
 }
 ```
+
+# その他参考サイト
+
+[WordPressでページにパスワードをかける最も簡単な方法](https://website-fun.com/password-protection/)
+
