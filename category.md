@@ -106,5 +106,5 @@ if(mb_strlen($cat_description)!==0){
 ```
     
 # カテゴリについてよくまとまっているURL
-http://delaymania.com/201510/wordpress/wordpress-catgory-name/
-[プラグイン不要！WordPressカテゴリーページに説明文を入れる方法](https://naifix.com/category-customize/)
+* http://delaymania.com/201510/wordpress/wordpress-catgory-name/
+* [プラグイン不要！WordPressカテゴリーページに説明文を入れる方法](https://naifix.com/category-customize/)
