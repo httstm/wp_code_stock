@@ -73,38 +73,32 @@ if(mb_strlen($cat_description)!==0){
 
 ## 階層途中にカテゴリディスクリプションがあれば、そこで停止
 
-※うまくうごかないので調整中。
+
 ```
-// 親までさかのぼって、カテゴリディスクリプションを取得する 
+// カテゴリディスクリプションを取得する 
 $my_id = get_queried_object_id();
-$ch_cat = get_the_category($my_id); 
-$cat_description = category_description($ch_cat[0]->term_id);
-// ここで、カテゴリディスクリプションがあれば、終了。
-
-if(mb_strlen($cat_description) === 0){
-	$ch_cat_parent = $ch_cat[0]->category_parent;
-	$tmp_cat_parent = $ch_cat_parent;
-	$cat_description = category_description($tmp_cat_parent);
-	if(mb_strlen($cat_description)!==0) $tmp_cat_parent = 0;
-
-    // カテゴリがないところまでいかないように注意。
-	// $tmp_cat_parent = 0;は、whileの停止キー。
-	while($tmp_cat_parent !== 0){ 
-		$arr_category = get_category($ch_cat_parent);
-		$tmp_cat_parent = $arr_category->parent;
-		$cat_description = category_description($tmp_cat_parent);
-		if(mb_strlen($cat_description)!==0) {
-			$ch_cat_parent = $tmp_cat_parent; 
-			$tmp_cat_parent = 0;
-		}
-		if($tmp_cat_parent !== 0 ) $ch_cat_parent = $tmp_cat_parent; 
-	} 
+$cat = get_category($my_id,false ); 
+$cat_description = category_description($my_id);
+$cat_parent = $cat->category_parent;
+// カテゴリディスクリプションがあれば、終了。
+if(mb_strlen($cat_description) === 0 && $cat_parent !== 0 ){
+	$cat_description = category_description($cat_parent);
+	// 親カテゴリで、ディスクリプションが存在したら、停止フラグをつける。
+	// $cat_parent = 0;は、whileの停止キー。
+	if(mb_strlen($cat_description)!==0){
+		$cat_parent = 0;
+	}else{
+		$category = get_category($cat_parent,false);
+		// 新しいcat_parentを取得する。
+		$cat_parent = $category->category_parent;
+		echo $cat_parent;
+	}
 }
 
 // カテゴリディスクリプションを表示する
 if(mb_strlen($cat_description)!==0){
 	echo $cat_description;
-	}
+}
 ```
     
 # カテゴリについてよくまとまっているURL
