@@ -104,3 +104,4 @@ if(mb_strlen($cat_description)!==0){
 # カテゴリについてよくまとまっているURL
 * http://delaymania.com/201510/wordpress/wordpress-catgory-name/
 * [プラグイン不要！WordPressカテゴリーページに説明文を入れる方法](https://naifix.com/category-customize/)
+* [WordPress 混乱しやすいget_categoryとget_the_categoryの違いと使い分け方](http://www.kerenor.jp/get-category-and-get-the-category/)
