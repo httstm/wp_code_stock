@@ -75,7 +75,8 @@ if(mb_strlen($cat_description)!==0){
 
 ```
 // 親までさかのぼって、カテゴリディスクリプションを取得する 
-$ch_cat = get_the_category(); 
+$my_id = get_queried_object_id();
+$ch_cat = get_the_category($my_id); 
 $cat_description = category_description($ch_cat[0]->term_id);
 // ここで、カテゴリディスクリプションがあれば、終了。
 
