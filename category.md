@@ -116,7 +116,17 @@ if(mb_strlen($cat_description)!==0){
 	echo $cat_description;
 }
 ```
-    
+
+# 該当カテゴリの子孫カテゴリのリンク一覧を取得する
+```
+// 子孫カテゴリを取得する
+$child_categories = get_categories([parent=>$my_id]);
+foreach($child_categories as $child_category){
+	$view_child_categories .=  '<a href="'.get_category_link( $category->term_id ).'">'.$child_category->cat_name.'</a>&emsp;';
+}
+```
+
+
 # カテゴリについてよくまとまっているURL
 * http://delaymania.com/201510/wordpress/wordpress-catgory-name/
 * [プラグイン不要！WordPressカテゴリーページに説明文を入れる方法](https://naifix.com/category-customize/)
