@@ -35,8 +35,8 @@ echo trim( $output, $separator );
 
 参考:[get_the_category()](https://wpdocs.osdn.jp/%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E3%82%BF%E3%82%B0/get_the_category)
 
-# 最上位カテゴリのterm_idを取得する。
-## [codex版](https://wpdocs.osdn.jp/%E9%96%A2%E6%95%B0%E3%83%AA%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9/get_categories#.E6.9C.80.E4.B8.8A.E4.BD.8D.E3.81.AE.E3.82.AB.E3.83.86.E3.82.B4.E3.83.AA.E3.83.BC.E3.81.AE.E3.81.BF.E3.82.92.E5.8F.96.E5.BE.97.E3.81.99.E3.82.8B)
+# 全投稿の最上位カテゴリを取得する
+[codex](https://wpdocs.osdn.jp/%E9%96%A2%E6%95%B0%E3%83%AA%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9/get_categories#.E6.9C.80.E4.B8.8A.E4.BD.8D.E3.81.AE.E3.82.AB.E3.83.86.E3.82.B4.E3.83.AA.E3.83.BC.E3.81.AE.E3.81.BF.E3.82.92.E5.8F.96.E5.BE.97.E3.81.99.E3.82.8B)
 ```
 <?php
 $args = array(
@@ -50,6 +50,8 @@ foreach ( $categories as $category ) {
 ?>
 ```
 
+
+# 現在の投稿の最上位カテゴリのterm_idを取得する。
 ## header版
 
 ```
